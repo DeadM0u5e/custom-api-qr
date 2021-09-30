@@ -1,0 +1,11 @@
+URL *hnd = curl_easy_init();
+
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+curl_easy_setopt(hnd, CURLOPT_URL, "https://qrcode-monkey.p.rapidapi.com/qr/custom?data=https%3A%2F%2Fwww.qrcode-monkey.com&config=%7B%22bodyColor%22%3A%20%22%230277BD%22%2C%20%22body%22%3A%22mosaic%22%7D&download=true&file=png&size=600");
+
+struct curl_slist *headers = NULL;
+headers = curl_slist_append(headers, "x-rapidapi-host: qrcode-monkey.p.rapidapi.com");
+headers = curl_slist_append(headers, "x-rapidapi-key: SIGN-UP-FOR-KEY");
+curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+CURLcode ret = curl_easy_perform(hnd);
