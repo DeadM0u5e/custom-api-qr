@@ -1,0 +1,23 @@
+var axios = require("axios").default;
+
+var options = {
+  method: 'GET',
+  url: 'https://qrcode-monkey.p.rapidapi.com/qr/custom',
+  params: {
+    data: 'https://www.qrcode-monkey.com',
+    config: '{"bodyColor": "#0277BD", "body":"mosaic"}',
+    download: 'true',
+    file: 'png',
+    size: '600'
+  },
+  headers: {
+    'x-rapidapi-host': 'qrcode-monkey.p.rapidapi.com',
+    'x-rapidapi-key': 'SIGN-UP-FOR-KEY'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
